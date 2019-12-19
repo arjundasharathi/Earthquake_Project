@@ -1,39 +1,35 @@
 -- Drop tables if they exist;
 DROP TABLE IF EXISTS earthquakes;
-DROP TABLE IF EXISTS location;
-DROP TABLE IF EXISTS population;
+DROP TABLE IF EXISTS population_size;
 DROP TABLE IF EXISTS gdp;
 
 -- Create table earthquakes
 CREATE TABLE earthquakes
-(mag FLOAT
+(id VARCHAR
+,mag FLOAT
 ,place VARCHAR
-,time DATE
+,timestamp BIGINT
 ,tsunami FLOAT
 ,eq_lat FLOAT
 ,eq_lon FLOAT
-,id VARCHAR
-,nearest_city_name VARCHAR);
-
--- Create table city
-CREATE TABLE city
-(city_lat FLOAT
-,city_lon FLOAT
 ,city_name VARCHAR
-,country_code VARCHAR);
+,country_code VARCHAR
+,PRIMARY KEY (id));
 
--- Create table population
-CREATE TABLE population
+-- Create table population_size
+CREATE TABLE population_size
 (city_name VARCHAR
 ,country_code VARCHAR
-,population FLOAT);
+,population_size FLOAT
+,PRIMARY KEY (city_name));
 
 -- Create table gdp
 CREATE TABLE gdp
 (country_name VARCHAR
 ,country_code VARCHAR
 ,year FLOAT
-,gdp_usd_millions FLOAT);
+,gdp_usd_millions FLOAT
+,PRIMARY KEY (country_code));
 
 
 
